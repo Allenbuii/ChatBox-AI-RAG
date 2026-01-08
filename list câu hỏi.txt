@@ -1,0 +1,45 @@
+1. Test cho Basic RAG (Đánh giá độ chính xác của từ khóa - Keyword Matching)
+Câu hỏi này chứa chính xác thuật ngữ có trong tài liệu, kiểm tra xem Vector Database có hoạt động đúng không.
+
+
+Câu hỏi 1 (Về P2P): "Các thành phần chính trong mô hình MVC của hệ thống Peer trung tâm là gì?".
+
+
+
+Kết quả mong đợi: Trả về chính xác 3 phần: View (Java Swing), Model (Socket, SQLite) và Controller (Điều phối sự kiện).
+
+Câu hỏi 2 (Về AI Manga): "Tên tổ chức nào của Nhật Bản đang đầu tư vào công nghệ AI để dịch thuật truyện tranh?".
+
+Kết quả mong đợi: Trả về "Tổ chức Phát triển Công nghệ Công nghiệp và Năng lượng mới (NEDO)".
+
+2. Test cho Multi-Query RAG (Đánh giá khả năng xử lý câu hỏi mơ hồ)
+Sử dụng các câu hỏi có cách diễn đạt không trùng khớp hoàn toàn với đề mục trong tài liệu.
+
+Câu hỏi 1 (Về P2P): "Project này dùng cách nào để tin nhắn không bị thất lạc khi gửi qua mạng?"
+
+Phân tích: Tài liệu không có chữ "thất lạc". Multi-Query sẽ tạo ra các biến thể như "Đảm bảo độ tin cậy", "Giao thức kết nối", "TCP/IP".
+
+
+Kết quả mong đợi: Truy xuất được đoạn nói về "Giao thức TCP/IP: Hướng kết nối, không mất gói, đúng thứ tự".
+
+Câu hỏi 2 (Về AI Manga): "Tại sao người Nhật lại muốn đẩy nhanh tốc độ dịch truyện tranh?"
+
+Phân tích: Multi-Query sẽ hỏi thêm về "Lợi ích của AI", "Thực trạng dịch thuật hiện nay".
+
+Kết quả mong đợi: Tổng hợp được các ý: Chỉ có 10% được dịch sang tiếng Anh, cần chặn nạn vi phạm bản quyền và tăng xuất khẩu văn hóa.
+
+3. Test cho HyDE (Đánh giá khả năng hiểu ngữ cảnh "ngược")
+Câu hỏi mô tả một tình huống thực tế, không hề chứa từ khóa kỹ thuật. Đây là lúc HyDE phát huy sức mạnh bằng cách tạo "Câu trả lời giả định".
+
+Câu hỏi 1 (Về P2P): "Nếu tôi đang chat mà đột nhiên máy bị sập nguồn, làm sao những người khác trong phòng biết tôi không còn online nữa?"
+
+Cơ chế HyDE: Nó sẽ tạo một văn bản giả định nói về việc "Hệ thống định kỳ kiểm tra kết nối, nếu quá thời gian không phản hồi sẽ coi là thoát".
+
+
+Kết quả mong đợi: Chạm đúng vào từ khóa Heartbeat, PING, PONG và con số 90 giây trong tài liệu.
+
+Câu hỏi 2 (Về AI Manga): "Dịch thuật bằng AI giúp các nhà xuất bản tiết kiệm được bao nhiêu tiền so với cách làm truyền thống?"
+
+Cơ chế HyDE: Nó giả định một câu trả lời có cấu trúc so sánh chi phí.
+
+Kết quả mong đợi: Truy xuất được thông tin "Chi phí giảm xuống còn khoảng 1/10 so với hiện nay" (tương đương giảm 90%).

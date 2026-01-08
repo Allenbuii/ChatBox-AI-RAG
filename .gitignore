@@ -1,0 +1,47 @@
+####################################
+# OS / Editor
+####################################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+.vscode/
+.idea/
+
+####################################
+# Backend - FastAPI / Python
+####################################
+# Virtual environment
+backend/venv/
+backend/.venv/
+
+# Environment variables
+backend/.env
+backend/.env.*
+
+# Python cache
+backend/__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Logs & DB
+*.log
+*.sqlite3
+*.db
+
+# Pytest / tools
+.pytest_cache/
+.mypy_cache/
+
+####################################
+# Frontend (chỉ ignore build chung nếu có)
+####################################
+frontend/dist/
+frontend/build/
+
+####################################
+# General
+####################################
+.env
+.env.*
